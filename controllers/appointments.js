@@ -6,7 +6,9 @@ const Nexmo = require("nexmo");
 const appointmentController = {
   all(req, res) {
     // Returns all appointments
-    Appointment.find({}).exec((err, appointments) => res.json(appointments));
+    Appointment.find({})
+        .populate('slots')
+        .exec((err, appointments) => res.json(appointments));
   },
   create(req, res) {
     var requestBody = req.body;
