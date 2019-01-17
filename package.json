@@ -24,6 +24,7 @@
     "morgan": "^1.9.1",
     "nexmo": "^2.4.0",
     "serve-favicon": "^2.5.0",
-    "static-favicon": "~1.0.0"
+    "static-favicon": "~1.0.0",
+    "uglify-js": "^3.4.9"
   }
 }
