@@ -28,10 +28,7 @@ const appointmentController = {
       slots: newslot._id
     });
    // console.log(newappointment);
-    const nexmo = new Nexmo({
-      apiKey: "7234f8a1",
-      apiSecret: "qb8DCxsDxs85IrxM"
-    });
+    
     
     const time1 = moment()
         .hour(9)
@@ -59,15 +56,22 @@ const appointmentController = {
 
       const from = 'Nexmo test';
       //const to = requestBody.phone;
-      const to = '40724999340';
-
-//      nexmo.message.sendSms(from, to, msg, (err, responseData) => {
-//        if (err) {
-//          console.log(err);
-//        } else {
-//          console.dir(responseData);
-//        }
-//      });
+      
+      if(process.env.ENABLE_SMS) {
+          const nexmo = new Nexmo({
+            apiKey: process.env.NEXMO_KEY,
+              apiSecret: process.env.NEXMO_SECRET
+            });
+          const to = process.env.SMS_TO;
+      
+          nexmo.message.sendSms(from, to, msg, (err, responseData) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.dir(responseData);
+            }
+          });
+      }
     });
   }
 };
