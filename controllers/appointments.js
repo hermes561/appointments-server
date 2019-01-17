@@ -57,7 +57,7 @@ const appointmentController = {
       const from = 'Nexmo test';
       //const to = requestBody.phone;
       
-      if(process.env.ENABLE_SMS) {
+      if(process.env.ENABLE_SMS === 1) {
           const nexmo = new Nexmo({
             apiKey: process.env.NEXMO_KEY,
               apiSecret: process.env.NEXMO_SECRET
