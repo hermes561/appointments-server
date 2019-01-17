@@ -18,7 +18,7 @@ var app = express();
 app.use(helmet());
 mongoose.Promise = global.Promise;
 
-mongoose.connect(process.env.MONGODB_URI || ' mongodb://razvansandbox2:florentina56@ds157834.mlab.com:57834/appointments', {
+mongoose.connect(process.env.MONGODB_URI || ' mongodb://<user>:<pass>@<dburl>/appointments', {
   useNewUrlParser: true
 });
 
